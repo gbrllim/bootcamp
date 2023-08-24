@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GAME TIME</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+
+      #header {
+        text-align: center;
+      }
+
+      #container {
+        background-color: #c1e5ff;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 38px 31px;
+      }
+
+      input {
+        font-size: 21px;
+        line-height: 33px;
+        margin: 0 0 23px 0;
+        padding: 0 9px;
+        width: 100%;
+      }
+
+      button {
+        font-style: sans-serif;
+        font-size: 21px;
+        line-height: 33px;
+        margin: 0 0 23px 0;
+        padding: 0 6px;
+      }
+
+      #output-div {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        width: 100%;
+      }
+
+      #scores-div {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="header">Scissors, Paper, Stone Stone</h1>
+
+    <div id="container">
+      <p>Your turn:</p>
+      <input id="input-field" />
+      <br />
+      <button id="submit-button">Play</button>
+      <button id="reset-button">Reset</button>
+      <p>Result:</p>
+      <div id="output-div"></div>
+      <p>Scores:</p>
+      <div id="scores-div"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Declare and define a variable that represents the Submit Button
+      var button = document.querySelector("#submit-button");
+      // When the submit button is clicked, access the text entered by the user in the input field
+      button.addEventListener("click", function () {
+        var input = document.querySelector("#input-field");
+        // Store the output of main() in a new variable
+        var result = main(input.value);
+        //Main game output
+        var output1 = document.querySelector("#output-div");
+        output1.innerHTML = result;
+        input.value = ""; //Reset input box value
+        //Score output
+        var score = showScore();
+        var output2 = document.querySelector("#scores-div");
+        output2.innerHTML = score;
+      });
+      var button2 = document.querySelector("#reset-button");
+      button2.addEventListener("click", function () {
+        resetScores(); //Call the reset scores function
+        var output1 = document.querySelector("#output-div");
+        var output2 = document.querySelector("#scores-div");
+        output1.innerHTML = "Scores have been reset";
+        output2.innerHTML = "Scores have been reset";
+      });
+    </script>
+  </body>
+</html>
