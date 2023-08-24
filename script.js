@@ -11,7 +11,7 @@ var generatePlay = function () {
   } else if (randomInteger == 1) {
     randomPlay = object[1]; // Paper
   } else {
-    randomPlay = object[2]; //Stone
+    randomPlay = object[2]; //Stonee
   }
   return randomPlay;
 };
